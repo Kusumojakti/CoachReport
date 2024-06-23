@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TambahJadwalActivity">
+    tools:context=".PerbaruiJadwalActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
@@ -34,7 +34,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
             android:fontFamily="@font/popmed"
-            android:text="Tambah Jadwal"
+            android:text="Perbarui Jadwal"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -260,11 +260,11 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_simpan"
+        android:id="@+id/btn_perbaruidata"
         android:layout_width="match_parent"
         android:layout_height="34dp"
         android:background="@drawable/btn_form"
-        android:text="Simpan"
+        android:text="Simpan perubahan"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:fontFamily="@font/popbold"
@@ -273,4 +273,5 @@
         android:layout_marginEnd="57dp"
         android:layout_marginBottom="54dp"
         app:layout_constraintBottom_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

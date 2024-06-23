@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TambahJadwalActivity">
+    tools:context=".PerbaruiProfileActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
@@ -34,11 +34,21 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
             android:fontFamily="@font/popmed"
-            android:text="Tambah Jadwal"
+            android:text="Perbarui Profil"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fotoprofile"
+        android:layout_width="112dp"
+        android:layout_height="112dp"
+        android:src="@drawable/profile"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <LinearLayout
         android:id="@+id/linearnama"
@@ -49,40 +59,40 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/bg_boxform"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@id/fotoprofile">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Materi"
+            android:text="Nama"
             android:fontFamily="@font/popmed"
             android:textSize="12sp"
             android:textColor="@color/black"
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"/>
 
-        <Spinner
-            android:id="@+id/edt_materi"
+        <EditText
+            android:id="@+id/edt_nama"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:layout_marginTop="11dp"
             android:layout_marginStart="19dp"
             android:layout_marginEnd="19dp"
             android:layout_marginBottom="15dp"
-            android:spinnerMode="dropdown"
             android:background="@drawable/bg_form"
+            android:hint="Masukkan nama"
             android:fontFamily="@font/popregular"
             android:textSize="12sp"
             android:paddingStart="11dp"/>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearnoidentitas"
+        android:id="@+id/linearnohp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
         android:layout_marginEnd="31dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/bg_boxform"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/linearnama">
@@ -90,7 +100,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hari"
+            android:text="Nomor HP"
             android:fontFamily="@font/popmed"
             android:textSize="12sp"
             android:textColor="@color/black"
@@ -98,7 +108,7 @@
             android:layout_marginTop="15dp"/>
 
         <EditText
-            android:id="@+id/edt_hari"
+            android:id="@+id/edt_noHP"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:layout_marginTop="11dp"
@@ -106,138 +116,27 @@
             android:layout_marginEnd="19dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/bg_form"
-            android:hint="Pilih hari dan tanggal"
+            android:hint="Masukkan nomor HP"
             android:fontFamily="@font/popregular"
             android:textSize="12sp"
             android:paddingStart="11dp"/>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearnotelp"
+        android:id="@+id/linearemail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
         android:layout_marginEnd="31dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/bg_boxform"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/linearnoidentitas">
+        app:layout_constraintTop_toBottomOf="@id/linearnohp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Waktu"
-            android:fontFamily="@font/popmed"
-            android:textSize="12sp"
-            android:textColor="@color/black"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:fontFamily="@font/popmed"
-                android:text="Mulai:"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/inputwaktu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/box_time"
-                android:layout_marginStart="10dp"
-                android:text="Masukan Jam"
-                android:fontFamily="@font/popregular"
-                android:textSize="10sp"
-                android:textColorHint="#9CA3AF"
-                android:textAlignment="center"
-                android:textColor="@color/black"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:fontFamily="@font/popmed"
-                android:text="Selesai:"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/outputwaktu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/box_time"
-                android:layout_marginStart="10dp"
-                android:text="Masukan Jam"
-                android:fontFamily="@font/popregular"
-                android:textSize="10sp"
-                android:textAlignment="center"
-                android:layout_marginEnd="22dp"
-                android:textColor="#9CA3AF"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/lineartempat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/bg_boxform"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/linearnotelp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tempat"
-            android:fontFamily="@font/popmed"
-            android:textSize="12sp"
-            android:textColor="@color/black"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"/>
-
-        <EditText
-            android:id="@+id/edt_tempat"
-            android:layout_width="match_parent"
-            android:layout_height="34dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginStart="19dp"
-            android:layout_marginEnd="19dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/bg_form"
-            android:hint="Masukkan nomor telpon"
-            android:fontFamily="@font/popregular"
-            android:textSize="12sp"
-            android:paddingStart="11dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearkelas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/bg_boxform"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/lineartempat">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kelas"
+            android:text="Email"
             android:fontFamily="@font/popmed"
             android:textSize="12sp"
             android:textColor="@color/black"
@@ -253,18 +152,18 @@
             android:layout_marginEnd="19dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/bg_form"
-            android:hint="Masukkan nama kelas"
+            android:hint="Masukkan alamat email"
             android:fontFamily="@font/popregular"
             android:textSize="12sp"
             android:paddingStart="11dp"/>
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_simpan"
+        android:id="@+id/btn_perbaruidata"
         android:layout_width="match_parent"
         android:layout_height="34dp"
         android:background="@drawable/btn_form"
-        android:text="Simpan"
+        android:text="Simpan perubahan"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:fontFamily="@font/popbold"
@@ -273,4 +172,6 @@
         android:layout_marginEnd="57dp"
         android:layout_marginBottom="54dp"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
