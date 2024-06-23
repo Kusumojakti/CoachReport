@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rv"
+    android:layout_gravity="center"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="17dp"
+        android:paddingTop="13dp">
+
+        <TextView
+            android:id="@+id/txt_nameofmater"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gaya Punggung"
+            android:fontFamily="@font/popsembold"
+            android:textSize="12sp"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/box_tag"
+                android:layout_marginTop="10dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/txt_namakelas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kelas A"
+                    android:textSize="10sp"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textColor="@color/gray2"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/box_tag"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="14dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/txt_namahari"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rabu"
+                    android:textSize="10sp"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textColor="@color/gray2"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/box_tag"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="14dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/txt_tanggal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="26 Juni 2024"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textSize="10sp"
+                    android:textColor="@color/gray2"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/box_tag"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="14dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/txt_waktu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="16.00 - 18.00"
+                    android:textSize="10sp"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textColor="@color/gray2"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lihat Detail >"
+        android:fontFamily="@font/popregular"
+        android:textSize="12sp"
+        android:textColor="@color/gray2"
+        android:layout_gravity="center"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="20dp"/>
+
+</LinearLayout>

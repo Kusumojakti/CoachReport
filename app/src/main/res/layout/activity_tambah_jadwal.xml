@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TambahJadwalActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/bg_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/backArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/popmed"
+            android:text="Tambah Jadwal"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/linearnama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_boxform"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Materi"
+            android:fontFamily="@font/popmed"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"/>
+
+        <Spinner
+            android:id="@+id/edt_materi"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginBottom="15dp"
+            android:spinnerMode="dropdown"
+            android:background="@drawable/bg_form"
+            android:fontFamily="@font/popregular"
+            android:textSize="12sp"
+            android:paddingStart="11dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearnoidentitas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_boxform"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/linearnama">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hari"
+            android:fontFamily="@font/popmed"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"/>
+
+        <EditText
+            android:id="@+id/edt_hari"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/bg_form"
+            android:hint="Pilih hari dan tanggal"
+            android:fontFamily="@font/popregular"
+            android:textSize="12sp"
+            android:paddingStart="11dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearnotelp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_boxform"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/linearnoidentitas">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Waktu"
+            android:fontFamily="@font/popmed"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/popmed"
+                android:text="Mulai:"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/inputwaktu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/box_time"
+                android:layout_marginStart="10dp"
+                android:text="Masukan Jam"
+                android:fontFamily="@font/popregular"
+                android:textSize="10sp"
+                android:textColorHint="#9CA3AF"
+                android:textAlignment="center"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/popmed"
+                android:text="Selesai:"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/outputwaktu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/box_time"
+                android:layout_marginStart="10dp"
+                android:text="Masukan Jam"
+                android:fontFamily="@font/popregular"
+                android:textSize="10sp"
+                android:textAlignment="center"
+                android:layout_marginEnd="22dp"
+                android:textColor="#9CA3AF"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
