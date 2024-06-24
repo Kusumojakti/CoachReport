@@ -2,6 +2,7 @@ package com.example.coachreport.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -24,12 +25,13 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnRegister.setOnClickListener {
-            val nama = binding.edtNama.text.toString().trim()
+            Log.d("RegisterActivity", "Register button clicked")
+            val name = binding.edtNama.text.toString().trim()
             val noHp = binding.edtNottelpon.text.toString().trim()
             val email = binding.edtEmail.text.toString().trim()
             val password = binding.edtPassword.text.toString().trim()
-            val confirmpass = binding.edtConfirmpassword.text.toString().trim()
-            authregister(nama, noHp, email, password, confirmpass)
+            val password_confirmation = binding.edtConfirmpassword.text.toString().trim()
+            Authregister(name, noHp, email, password, password_confirmation)
         }
 
         binding.txtLogin.setOnClickListener {
@@ -39,31 +41,33 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun authregister(nama: String, noHp : String, email: String, password: String, confirmpass: String) {
-        if (noHp.isEmpty() || password.isEmpty() || nama.isEmpty() || email.isEmpty() || confirmpass.isEmpty()) {
+    private fun Authregister(name: String, noHp : String, email: String, password: String, password_confirmation: String) {
+        if (noHp.isEmpty() || password.isEmpty() || name.isEmpty() || email.isEmpty() || password_confirmation.isEmpty()) {
             Toast.makeText(this, "All field must be required", Toast.LENGTH_SHORT).show()
             return
         }
-        var regisInfo: RegisterRequest{
-
-        }
-        APIConfig.getService().AuthRegist(regisInfo).enqueue(object : Callback<RegisterResponse> {
+        APIConfig.getService().AuthRegist(name, noHp, email, password, password_confirmation).enqueue(object : Callback<RegisterResponse> {
             override fun onResponse(
                 call: Call<RegisterResponse>,
                 response: Response<RegisterResponse>
             ) {
-                if (response.code() == 200) {
+                Log.d("RegisterActivity", "onResponse: " + response.code())
+                if (response.isSuccessful) {
+                    Log.d("RegisterActivity", "Register successful")
                     val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {
+                    Log.d("RegisterActivity", "Register failed: " + response.errorBody()?.string())
                     Toast.makeText(this@RegisterActivity, "Register Failed", Toast.LENGTH_LONG).show()
                 }
             }
 
             override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                Log.e("RegisterActivity", "Register error", t)
                 Toast.makeText(this@RegisterActivity, "Register error", Toast.LENGTH_SHORT).show()
             }
         })
+
     }
 }

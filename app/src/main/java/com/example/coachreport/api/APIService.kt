@@ -19,13 +19,11 @@ interface APIService {
     @FormUrlEncoded
     @POST("api/register")
     fun AuthRegist(
-        body: RegisterResponse)
-//    fun AuthRegist(
-//        @Field("nama") nama: String,
-//        @Field("noHp") noHp: String,
-//        @Field("email") email: String,
-//        @Field("password") password: String,
-//        @Field("password_confirmation") password_confirmation: String,
-//    ) : Call<RegisterResponse>
+        @Field("name") nama: String,
+        @Field("noHp") noHp: String,
+        @Field("email") email: String,
+        @Field("password") password: String,
+        @Field("password_confirmation") password_confirmation: String,
+    ) : Call<RegisterResponse>
 }
 

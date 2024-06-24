@@ -249,7 +249,7 @@
             android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="34dp"
-            android:layout_marginTop="31dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/btn_form"
             android:fontFamily="@font/popbold"
             android:text="Register"
