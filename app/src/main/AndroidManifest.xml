@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -10,72 +12,91 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.CoachReport"
         tools:targetApi="31">
         <activity
-            android:name=".PerbaruiProfileActivity"
-            android:exported="false" />
+            android:name=".profile.PerbaruiProfileActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".ProfileActivity"
-            android:exported="false" />
+            android:name=".profile.ProfileActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".PerbaruiMateriActivity"
-            android:exported="false" />
+            android:name=".materi.PerbaruiMateriActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".TambahMateriActivity"
-            android:exported="false" />
+            android:name=".materi.TambahMateriActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".DetailMateriActivity"
-            android:exported="false" />
+            android:name=".materi.DetailMateriActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".KelolaMateriActivity"
-            android:exported="false" />
+            android:name=".materi.KelolaMateriActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".PerbaruiJadwalActivity"
-            android:exported="false" />
+            android:name=".jadwal.PerbaruiJadwalActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".TambahJadwalActivity"
-            android:exported="false" />
+            android:name=".jadwal.TambahJadwalActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".DetailJadwalKelas"
-            android:exported="false" />
+            android:name=".jadwal.DetailJadwalKelas"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".KelolaJadwalActivity"
-            android:exported="false" />
+            android:name=".jadwal.KelolaJadwalActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".UpdateAbsensiActivity"
-            android:exported="false" />
+            android:name=".absensi.UpdateAbsensiActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".KelolaAbsensiActivity"
-            android:exported="false" />
+            android:name=".absensi.KelolaAbsensiActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".PerbaruiDataSiswaActivity"
-            android:exported="false" />
+            android:name=".siswa.PerbaruiDataSiswaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".TambahDataSiswaActivity"
-            android:exported="false" />
+            android:name=".siswa.TambahDataSiswaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".DetailDataSiswa"
-            android:exported="false" />
+            android:name=".siswa.DetailDataSiswa"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".KelolaDataSiswaActivity"
-            android:exported="false" />
+            android:name=".siswa.KelolaDataSiswaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".DashboardActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".RegisterActivity"
-            android:exported="false" />
+            android:name=".auth.RegisterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".Splashscreen"
+            android:name=".auth.LoginActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Splashscreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

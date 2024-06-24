@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PerbaruiMateriActivity">
+    tools:context=".materi.PerbaruiMateriActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
@@ -99,7 +99,7 @@
             android:layout_marginTop="15dp"/>
 
         <EditText
-            android:id="@+id/edt_judul_materi"
+            android:id="@+id/edt_deskripsi"
             android:layout_width="match_parent"
             android:layout_height="109dp"
             android:layout_marginTop="11dp"

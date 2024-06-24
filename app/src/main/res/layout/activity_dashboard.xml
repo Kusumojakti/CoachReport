@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/popsembold"
             android:text="Fitur Aplikasi"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="40dp"
             android:layout_marginStart="25dp"
             android:textColor="@color/black"
             android:textSize="14sp" />
