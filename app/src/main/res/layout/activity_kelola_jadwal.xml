@@ -76,14 +76,14 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:listitem="@layout/fetch_oncoming_class" />
 
-            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                android:id="@+id/floatingbutton"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@drawable/bg_floating"
-                android:padding="10dp"
-                tools:layout_editor_absoluteX="312dp"
-                tools:layout_editor_absoluteY="578dp" />
+<!--            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+<!--                android:id="@+id/floatingbutton"-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:background="@drawable/bg_floating"-->
+<!--                android:padding="10dp"-->
+<!--                tools:layout_editor_absoluteX="312dp"-->
+<!--                tools:layout_editor_absoluteY="578dp" />-->
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

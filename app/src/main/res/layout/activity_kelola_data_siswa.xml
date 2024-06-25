@@ -91,14 +91,29 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:listitem="@layout/fetch_data_siswa" />
 
-            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                android:id="@+id/floatingbutton"
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/addSiswaBtn"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:background="@drawable/bg_floating"
+                android:contentDescription="add"
                 android:padding="10dp"
-                tools:layout_editor_absoluteX="306dp"
-                tools:layout_editor_absoluteY="561dp" />
+
+                app:layout_constraintStart_toEndOf="@id/guideline2"
+                app:layout_constraintTop_toBottomOf="@id/guideline4" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="306dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="531dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

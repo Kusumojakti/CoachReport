@@ -3,6 +3,8 @@ package com.example.coachreport.api
 import com.example.coachreport.api.response.LoginResponse
 import com.example.coachreport.api.response.MateriResponse
 import com.example.coachreport.api.response.RegisterResponse
+import com.example.coachreport.api.response.kelasResponse.KelasIndexResponse
+import com.example.coachreport.api.response.siswaResponse.SiswaIndexResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.Field
@@ -31,5 +33,14 @@ interface APIService {
 //  endpoint  materi
     @GET("api/materi")
     fun getMateri() : Call<MateriResponse>
+
+//    endpoint jadwal
+    @GET("api/jadwal")
+    fun indexKelas() : Call<KelasIndexResponse>
+
+
+//    endpoint Siswa
+    @GET("api/siswa")
+    fun indexSiswa() : Call<SiswaIndexResponse>
 }
 

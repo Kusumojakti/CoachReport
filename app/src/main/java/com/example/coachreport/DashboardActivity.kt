@@ -8,6 +8,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.coachreport.databinding.ActivityDashboardBinding
 import com.example.coachreport.materi.KelolaMateriActivity
+import com.example.coachreport.siswa.KelolaDataSiswaActivity
+import com.example.coachreport.siswa.TambahDataSiswaActivity
 import com.example.coachreport.utils.SessionManager
 
 class DashboardActivity : AppCompatActivity() {
@@ -24,6 +26,10 @@ class DashboardActivity : AppCompatActivity() {
         binding.menumateri.setOnClickListener {
             val intent = Intent(this, KelolaMateriActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.menusiswa.setOnClickListener{
+            startActivity(Intent(this, KelolaDataSiswaActivity::class.java))
         }
     }
 }

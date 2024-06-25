@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_siswa"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_rv"
     android:layout_gravity="center"
+    android:background="@drawable/bg_rv"
     android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/txt_namasiswa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Danu Dwiki Laksana"
             android:fontFamily="@font/popsembold"
-            android:textSize="12sp"
-            android:textColor="@color/black"/>
+            android:text="Danu Dwiki Laksana"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/box_tag"
             android:layout_marginTop="10dp"
+            android:background="@drawable/box_tag"
             android:gravity="center">
 
             <TextView
                 android:id="@+id/txt_namakelas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kelas A"
-                android:textSize="10sp"
+                android:layout_gravity="center"
                 android:paddingStart="4dp"
                 android:paddingEnd="4dp"
+                android:text="Kelas A"
                 android:textColor="@color/gray2"
-                android:layout_gravity="center"/>
+                android:textSize="10sp" />
 
         </LinearLayout>
 
@@ -47,12 +48,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lihat Detail >"
-        android:fontFamily="@font/popregular"
-        android:textSize="12sp"
-        android:textColor="@color/gray2"
         android:layout_gravity="center"
+        android:layout_marginStart="153dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginStart="153dp"/>
+        android:fontFamily="@font/popregular"
+        android:text="Lihat Detail >"
+        android:textColor="@color/gray2"
+        android:textSize="12sp" />
 
 </LinearLayout>
