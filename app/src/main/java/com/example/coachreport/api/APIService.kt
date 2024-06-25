@@ -1,11 +1,13 @@
 package com.example.coachreport.api
 
 import com.example.coachreport.api.response.LoginResponse
+import com.example.coachreport.api.response.MateriResponse
 import com.example.coachreport.api.response.RegisterResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
 interface APIService {
 
@@ -25,5 +27,9 @@ interface APIService {
         @Field("password") password: String,
         @Field("password_confirmation") password_confirmation: String,
     ) : Call<RegisterResponse>
+
+//  endpoint  materi
+    @GET("api/materi")
+    fun getMateri() : Call<MateriResponse>
 }
 

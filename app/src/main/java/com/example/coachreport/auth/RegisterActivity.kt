@@ -46,7 +46,7 @@ class RegisterActivity : AppCompatActivity() {
             Toast.makeText(this, "All field must be required", Toast.LENGTH_SHORT).show()
             return
         }
-        APIConfig.getService().AuthRegist(name, noHp, email, password, password_confirmation).enqueue(object : Callback<RegisterResponse> {
+        APIConfig.getService(this).AuthRegist(name, noHp, email, password, password_confirmation).enqueue(object : Callback<RegisterResponse> {
             override fun onResponse(
                 call: Call<RegisterResponse>,
                 response: Response<RegisterResponse>

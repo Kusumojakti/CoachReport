@@ -41,10 +41,16 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
-        APIConfig.getService().AuthLogin(noHp, password).enqueue(object : Callback<LoginResponse> {
+        APIConfig.getService(this).AuthLogin(noHp, password).enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.code() == 200) {
-
+                    val token = response.body()?.token.toString()
+                    val id = response.body()?.user?.id.toString()
+                    val name = response.body()?.user?.name.toString()
+                    val noHp = response.body()?.user?.noHp.toString()
+                    val email = response.body()?.user?.email.toString()
+                    SessionManager.saveAuthToken(context = this@LoginActivity, token = token)
+                    SessionManager.saveUserdata(context = this@LoginActivity, id = id, name = name, noHp = noHp ,email= email)
                     val intent = Intent(this@LoginActivity, DashboardActivity::class.java)
                     startActivity(intent)
                     finish()
