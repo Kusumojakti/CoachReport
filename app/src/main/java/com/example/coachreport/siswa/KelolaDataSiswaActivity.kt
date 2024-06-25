@@ -28,13 +28,16 @@ class KelolaDataSiswaActivity : AppCompatActivity() {
         binding.rcDatasiswa.layoutManager = LinearLayoutManager(this)
         binding.rcDatasiswa.adapter = adapterSiswa
 
-        getData()
-
         binding.addSiswaBtn.setOnClickListener{
             val intent = Intent(this, TambahDataSiswaActivity::class.java)
             startActivity(intent)
         }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getData()
     }
 
     private fun getData() {

@@ -140,7 +140,7 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_perbarui"
+        android:id="@+id/btnPerbaruiSiswa"
         android:layout_width="match_parent"
         android:layout_height="34dp"
         android:background="@drawable/btn_form"
@@ -155,7 +155,7 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_simpan"
+        android:id="@+id/btnSimpanSiswa"
         android:layout_width="match_parent"
         android:layout_height="34dp"
         android:background="@drawable/btn_form"

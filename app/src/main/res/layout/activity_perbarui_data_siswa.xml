@@ -103,6 +103,7 @@
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:layout_marginTop="11dp"
+            android:editable="false"
             android:layout_marginStart="19dp"
             android:layout_marginEnd="19dp"
             android:layout_marginBottom="15dp"

@@ -2,6 +2,7 @@ package com.example.coachreport.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +31,7 @@ class adapterSiswa (private  val context: Context, private var siswaList: List<D
             val intent = Intent(context, DetailDataSiswa::class.java)
             intent.putExtra("nama", nama)
             intent.putExtra("kelas", kelas)
-            intent.putExtra("noIdentitas", currentItem?.noIdentitas)
+            intent.putExtra("noIdentitas", currentItem?.noIdentitas.toString())
             intent.putExtra("noTelp", currentItem?.noTelp)
             context.startActivity(intent)
         }

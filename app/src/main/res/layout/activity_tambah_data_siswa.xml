@@ -185,11 +185,12 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_simpan"
+        android:id="@+id/btnSimpanSiswa"
         android:layout_width="match_parent"
         android:layout_height="34dp"
         android:background="@drawable/btn_form"
         android:text="Simpan"
+        android:clickable="true"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:fontFamily="@font/popbold"
