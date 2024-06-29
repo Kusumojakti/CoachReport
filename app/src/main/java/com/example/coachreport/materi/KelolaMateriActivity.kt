@@ -24,7 +24,6 @@ class KelolaMateriActivity : AppCompatActivity() {
     private lateinit var binding : ActivityKelolaMateriBinding
     private lateinit var adapterMateri: adapterMateri
 
-    private var totalmateri : Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityKelolaMateriBinding.inflate(layoutInflater)
@@ -64,7 +63,7 @@ class KelolaMateriActivity : AppCompatActivity() {
             ) {
                 if (response.code() == 200) {
                     val responsemateri = response.body()
-                    val datamateri = responsemateri?.user
+                    val datamateri = responsemateri?.data
 
                     if (datamateri != null) {
                         adapterMateri.updateData(datamateri)

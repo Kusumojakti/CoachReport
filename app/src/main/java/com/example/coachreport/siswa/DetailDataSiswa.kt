@@ -1,8 +1,10 @@
 package com.example.coachreport.siswa
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,7 +25,7 @@ class DetailDataSiswa : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        WindowCompat.setDecorFitsSystemWindows(window, false)
+//        WindowCompat.setDecorFitsSystemWindows(window, false)
         binding = ActivityDetailDataSiswaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -38,7 +40,23 @@ class DetailDataSiswa : AppCompatActivity() {
         binding.namaKelas.text = kelas
 
         binding.btnHapusSiswa.setOnClickListener {
-            deleteSiswa(noIdentitas.toString())
+            val dialog = Dialog(this)
+            dialog.setContentView(R.layout.dialog_delete)
+            dialog.setCancelable(true)
+
+            val btnYa = dialog.findViewById<Button>(R.id.btn_okay)
+            val btnTidak = dialog.findViewById<Button>(R.id.btn_cancel)
+
+            btnYa.setOnClickListener {
+                deleteSiswa(noIdentitas.toString())
+                dialog.dismiss()
+            }
+
+            btnTidak.setOnClickListener {
+                dialog.dismiss()
+            }
+
+            dialog.show()
         }
 
         binding.btnPerbaruiSiswa.setOnClickListener {
@@ -59,7 +77,10 @@ class DetailDataSiswa : AppCompatActivity() {
             ) {
                 if (response.code() == 200) {
                     Toast.makeText(this@DetailDataSiswa, "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this@DetailDataSiswa, KelolaDataSiswaActivity::class.java))
+                    val intent = Intent(this@DetailDataSiswa, KelolaDataSiswaActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(intent)
+
                 }
                 Toast.makeText(this@DetailDataSiswa, response.message(), Toast.LENGTH_SHORT).show()
             }

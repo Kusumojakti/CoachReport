@@ -34,6 +34,7 @@ class PerbaruiJadwalActivity : AppCompatActivity() {
     private var materiId: Int? = null
     private var mulaiwaktu: String? = null
     private var selesaiwaktu: String? = null
+    private var judul: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +46,8 @@ class PerbaruiJadwalActivity : AppCompatActivity() {
         val waktuselesai = intent.getStringExtra("selesai") ?: ""
         val kelas = intent.getStringExtra("nama") ?: ""
         val tempat = intent.getStringExtra("tempat") ?: ""
-        val materi = intent.getStringExtra("judul") ?: ""
+        judul = intent.getStringExtra("judul").toString()
+        selectedHari = intent.getStringExtra("hari")
 
         mulaiwaktu = waktumulai
         selesaiwaktu = waktuselesai
@@ -79,6 +81,11 @@ class PerbaruiJadwalActivity : AppCompatActivity() {
             val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, hariArray)
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             dropdown.adapter = adapter
+
+            val defPosition = hariArray.indexOf(selectedHari)
+            if(defPosition != -1) {
+                dropdown.setSelection(defPosition)
+            }
         }
 
         dropdown.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -153,6 +160,11 @@ class PerbaruiJadwalActivity : AppCompatActivity() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, materi)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.edtMateri.adapter = adapter
+
+        val defPosition = materi.indexOf(judul)
+        if(defPosition != -1) {
+            binding.edtMateri.setSelection(defPosition)
+        }
     }
 
     private fun getMateri() {
@@ -160,7 +172,7 @@ class PerbaruiJadwalActivity : AppCompatActivity() {
             override fun onResponse(call: Call<MateriResponse>, response: Response<MateriResponse>) {
                 if (response.code() == 200) {
                     val data = response.body()
-                    val dataItem = data?.user
+                    val dataItem = data?.data
                     Log.d("FETCH DATA", dataItem.toString())
                     dataItem?.let { dataSpinner(it as List<dataMateri>) }
                     dataItem?.let { dataMateri = it as List<dataMateri> }

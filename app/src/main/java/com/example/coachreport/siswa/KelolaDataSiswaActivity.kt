@@ -2,6 +2,7 @@ package com.example.coachreport.siswa
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
@@ -34,6 +35,25 @@ class KelolaDataSiswaActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (newText.isNullOrBlank()){
+                    getData()
+                }
+                getDataSearch(newText.toString())
+
+                return true
+            }
+
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query != null){
+                    getDataSearch(query.toString())
+                }
+
+                return true
+            }
+        })
+
     }
 
     override fun onResume() {
@@ -52,10 +72,6 @@ class KelolaDataSiswaActivity : AppCompatActivity() {
 
                     if (!dataSiswa.isNullOrEmpty()) {
                         adapterSiswa.updateData(dataSiswa)
-                        val jumlahsiswa = dataSiswa?.size
-                        val intent = Intent(this@KelolaDataSiswaActivity, DashboardActivity::class.java)
-                        intent.putExtra("jumlah_siswa", jumlahsiswa)
-                        startActivity(intent)
                     }
 
                 }
@@ -65,6 +81,28 @@ class KelolaDataSiswaActivity : AppCompatActivity() {
                 Toast.makeText(this@KelolaDataSiswaActivity,  t.message, Toast.LENGTH_LONG).show()
             }
         })
+    }
+
+    private fun getDataSearch(kata: String) {
+    APIConfig.getService(this).searchSiswa(kata).enqueue(object : Callback<SiswaIndexResponse> {
+        override fun onResponse(
+            call: Call<SiswaIndexResponse>,
+            response: Response<SiswaIndexResponse>
+        ) {
+            if (response.code() == 200) {
+                val dataSiswa = response?.body()?.data
+
+                if (!dataSiswa.isNullOrEmpty()) {
+                    adapterSiswa.updateData(dataSiswa)
+                }
+
+            }
+        }
+
+        override fun onFailure(call: Call<SiswaIndexResponse>, t: Throwable) {
+            Toast.makeText(this@KelolaDataSiswaActivity,  t.message, Toast.LENGTH_LONG).show()
+        }
+    })
     }
 
 }

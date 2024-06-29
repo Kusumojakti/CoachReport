@@ -100,6 +100,10 @@ interface APIService {
     @DELETE("api/siswa/{id}")
     fun deleteSiswa(@Path("id") id: String) : Call<SiswaDeleteResponse>
 
+
+    @GET("api/search-siswa")
+    fun searchSiswa(@Query("kata") kata: String) : Call<SiswaIndexResponse>
+
     // endpoint absen
     @GET("api/getabsen")
     fun getabsensi(

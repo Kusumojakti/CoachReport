@@ -1,6 +1,7 @@
 package com.example.coachreport.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +9,10 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coachreport.R
-import com.example.coachreport.api.response.kelasResponse.DataItems
+import com.example.coachreport.api.response.kelasResponse.ClassItem
+import com.example.coachreport.jadwal.DetailJadwalKelas
 
-class adapterKelasMendatang (private val context: Context, private var comingclasslist : List<DataItems?>?) : RecyclerView.Adapter<adapterKelasMendatang.myViewHolder>() {
+class adapterKelasMendatang (private val context: Context, private var comingclasslist : List<ClassItem?>?) : RecyclerView.Adapter<adapterKelasMendatang.myViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -35,13 +37,24 @@ class adapterKelasMendatang (private val context: Context, private var comingcla
         holder.hari.text = hari
         holder.mulai.text = mulai
         holder.selesai.text = selesai
+        holder.card_jadwal.setOnClickListener {
+            val intent = Intent(context, DetailJadwalKelas::class.java)
+            intent.putExtra("id", id.toString())
+            intent.putExtra("nama", kelas)
+            intent.putExtra("judul", nama_materi)
+            intent.putExtra("hari", hari)
+            intent.putExtra("tempat", tempat)
+            intent.putExtra("mulai", mulai)
+            intent.putExtra("selesai", selesai)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
         return comingclasslist!!.size
     }
 
-    fun updateData(newData: List<DataItems?>?) {
+    fun updateData(newData: List<ClassItem?>?) {
         comingclasslist = newData
         notifyDataSetChanged()
     }

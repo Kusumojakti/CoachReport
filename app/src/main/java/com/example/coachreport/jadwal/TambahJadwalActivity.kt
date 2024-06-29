@@ -131,7 +131,7 @@ class TambahJadwalActivity : AppCompatActivity() {
             ) {
                 if (response.code() == 200) {
                     val data = response.body()
-                    val dataItem = data?.user
+                    val dataItem = data?.data
                     Log.d("FETCH DATA", dataItem.toString())
                     dataItem?.let { dataSpinner(it as List<dataMateri>) }
                     dataItem?.let { dataMateri = it as List<dataMateri> }

@@ -25,7 +25,7 @@ class TambahDataSiswaActivity : AppCompatActivity() {
     private var dataKelas: List<DataItem> = emptyList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        WindowCompat.setDecorFitsSystemWindows(window, false)
+//        WindowCompat.setDecorFitsSystemWindows(window, false)
         binding = ActivityTambahDataSiswaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -111,8 +111,9 @@ class TambahDataSiswaActivity : AppCompatActivity() {
             ) {
                 if (response.code() == 200) {
                     Toast.makeText(this@TambahDataSiswaActivity, response.message(), Toast.LENGTH_SHORT).show()
-                    finish()
-                    startActivity(Intent(this@TambahDataSiswaActivity, KelolaDataSiswaActivity::class.java))
+                    val intent = Intent(this@TambahDataSiswaActivity, KelolaDataSiswaActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(intent)
                 }
                 Toast.makeText(this@TambahDataSiswaActivity, "Data Tidak Boleh Kosong", Toast.LENGTH_SHORT).show()
             }

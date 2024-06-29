@@ -11,7 +11,7 @@ data class MateriResponse(
 	val message: String? = null,
 
 	@field:SerializedName("data")
-	val user: List<dataMateri?>? = null
+	val data: List<dataMateri?>? = null
 )
 
 data class dataMateri(
