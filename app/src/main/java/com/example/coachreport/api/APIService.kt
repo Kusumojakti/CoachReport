@@ -1,5 +1,7 @@
 package com.example.coachreport.api
 
+import com.example.coachreport.api.request.absenRequest.AbsensiGetRequest
+import com.example.coachreport.api.request.absenRequest.AbsensiPostRequest
 import com.example.coachreport.api.request.jadwalRequest.KelasStoreRequest
 import com.example.coachreport.api.request.jadwalRequest.KelasUpdateRequest
 import com.example.coachreport.api.request.siswaRequest.SiswaStoreRequest
@@ -8,6 +10,7 @@ import com.example.coachreport.api.response.LoginResponse
 import com.example.coachreport.api.response.MateriResponse
 import com.example.coachreport.api.response.RegisterResponse
 import com.example.coachreport.api.response.absensiResponse.AbsensiGetResponse
+import com.example.coachreport.api.response.absensiResponse.AbsensiPostResponse
 import com.example.coachreport.api.response.kelasResponse.KelasIndexResponse
 import com.example.coachreport.api.response.kelasResponse.KelasTodayResponse
 import com.example.coachreport.api.response.kelasResponse.KelasUpdateResponse
@@ -104,7 +107,14 @@ interface APIService {
         @Query("jadwal_kelas_id") jadwalKelasId: Int?
     ): Call<AbsensiGetResponse>
 
+    @POST("api/absensi")
+    fun saveabsensi(@Body simpanabsensi : AbsensiPostRequest) : Call<AbsensiPostResponse>
 
+    @DELETE("api/deldataabsensi")
+    fun deleteabsensi(
+        @Query("pertemuan_ke") pertemuanKe: Int?,
+        @Query("jadwal_kelas_id") jadwalKelasId: Int?
+    ): Call<AbsensiGetResponse>
 
 }
 

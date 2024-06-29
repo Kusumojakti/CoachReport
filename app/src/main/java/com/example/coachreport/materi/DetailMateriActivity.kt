@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import android.window.OnBackInvokedDispatcher
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -66,6 +67,12 @@ class DetailMateriActivity : AppCompatActivity() {
         }
     }
 
+    override fun getOnBackInvokedDispatcher(): OnBackInvokedDispatcher {
+        return super.getOnBackInvokedDispatcher()
+        finish()
+
+    }
+
     private fun deleteMateri() {
         val id = intent.getStringExtra("id")
         if (id != null) {
@@ -76,8 +83,9 @@ class DetailMateriActivity : AppCompatActivity() {
                         // Tambahkan kode untuk menangani jika delete berhasil
                         Toast.makeText(applicationContext, "Materi berhasil dihapus", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this@DetailMateriActivity, KelolaMateriActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                         startActivity(intent)
-                        finish()
+
                     } else {
                         // Tambahkan kode untuk menangani jika delete gagal
                         Toast.makeText(applicationContext, "Gagal menghapus materi", Toast.LENGTH_SHORT).show()

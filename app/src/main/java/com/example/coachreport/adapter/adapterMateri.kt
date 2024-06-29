@@ -9,10 +9,10 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coachreport.R
-import com.example.coachreport.api.response.UserItem
+import com.example.coachreport.api.response.dataMateri
 import com.example.coachreport.materi.DetailMateriActivity
 
-class adapterMateri (private val context: Context, private var materilist : List<UserItem?>?) : RecyclerView.Adapter<adapterMateri.myViewHolder>() {
+class adapterMateri (private val context: Context, private var materilist : List<dataMateri?>?) : RecyclerView.Adapter<adapterMateri.myViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): adapterMateri.myViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.fetch_materi, parent,false)
         return myViewHolder(view)
@@ -38,7 +38,7 @@ class adapterMateri (private val context: Context, private var materilist : List
     override fun getItemCount(): Int {
         return materilist!!.size
     }
-    fun updateData(newData: List<UserItem?>?) {
+    fun updateData(newData: List<dataMateri?>?) {
         materilist = newData
         notifyDataSetChanged()
     }

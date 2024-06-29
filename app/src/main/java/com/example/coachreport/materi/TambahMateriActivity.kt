@@ -3,6 +3,7 @@ package com.example.coachreport.materi
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import android.window.OnBackInvokedDispatcher
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -29,6 +30,11 @@ class TambahMateriActivity : AppCompatActivity() {
         }
 
     }
+    override fun getOnBackInvokedDispatcher(): OnBackInvokedDispatcher {
+        return super.getOnBackInvokedDispatcher()
+        finish()
+
+    }
 
     private fun addMateri(judul : String, deskripsi: String) {
         APIConfig.getService(this).addMateri(judul, deskripsi).enqueue(object : Callback<MateriResponse> {
@@ -39,8 +45,8 @@ class TambahMateriActivity : AppCompatActivity() {
                 if (response.code() == 200) {
                     Toast.makeText(this@TambahMateriActivity, "Sukses menambahkan materi", Toast.LENGTH_LONG).show()
                     val intent = Intent(this@TambahMateriActivity, KelolaMateriActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                     startActivity(intent)
-                    finish()
                 }
                 else {
                     Toast.makeText(this@TambahMateriActivity, "Gagal menambahkan data", Toast.LENGTH_LONG).show()
@@ -48,7 +54,7 @@ class TambahMateriActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<MateriResponse>, t: Throwable) {
-                TODO("Not yet implemented")
+                Toast.makeText(this@TambahMateriActivity,  t.message, Toast.LENGTH_LONG).show()
             }
         })
     }

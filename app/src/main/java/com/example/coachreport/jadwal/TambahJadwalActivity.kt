@@ -15,7 +15,7 @@ import com.example.coachreport.R
 import com.example.coachreport.api.APIConfig
 import com.example.coachreport.api.request.jadwalRequest.KelasStoreRequest
 import com.example.coachreport.api.response.MateriResponse
-import com.example.coachreport.api.response.UserItem
+import com.example.coachreport.api.response.dataMateri
 import com.example.coachreport.databinding.ActivityTambahJadwalBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,7 +24,7 @@ import java.util.Calendar
 
 class TambahJadwalActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTambahJadwalBinding
-    private var dataMateri : List<UserItem> = emptyList()
+    private var dataMateri : List<dataMateri> = emptyList()
     private lateinit var dropdown : Spinner
     private var selectedHari: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -115,7 +115,7 @@ class TambahJadwalActivity : AppCompatActivity() {
 
     }
 
-    private fun dataSpinner(dataItem: List<UserItem>) {
+    private fun dataSpinner(dataItem: List<dataMateri>) {
         val materi : List<String> = dataItem.map { it.judul.toString() }
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, materi)
@@ -133,14 +133,14 @@ class TambahJadwalActivity : AppCompatActivity() {
                     val data = response.body()
                     val dataItem = data?.user
                     Log.d("FETCH DATA", dataItem.toString())
-                    dataItem?.let { dataSpinner(it as List<UserItem>) }
-                    dataItem?.let { dataMateri = it as List<UserItem> }
+                    dataItem?.let { dataSpinner(it as List<dataMateri>) }
+                    dataItem?.let { dataMateri = it as List<dataMateri> }
 
                 }
             }
 
             override fun onFailure(call: Call<MateriResponse>, t: Throwable) {
-                TODO("Not yet implemented")
+                Toast.makeText(this@TambahJadwalActivity,  t.message, Toast.LENGTH_LONG).show()
             }
         })
     }
@@ -156,7 +156,6 @@ class TambahJadwalActivity : AppCompatActivity() {
                     val intent = Intent(this@TambahJadwalActivity,KelolaJadwalActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                     startActivity(intent)
-                    finish()
                 }
                 Toast.makeText(this@TambahJadwalActivity, "Data Tidak Boleh Kosong", Toast.LENGTH_SHORT).show()
             }

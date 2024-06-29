@@ -16,9 +16,7 @@ import com.example.coachreport.api.APIConfig
 import com.example.coachreport.api.request.jadwalRequest.KelasStoreRequest
 import com.example.coachreport.api.request.jadwalRequest.KelasUpdateRequest
 import com.example.coachreport.api.response.MateriResponse
-import com.example.coachreport.api.response.UserItem
-import com.example.coachreport.api.response.kelasResponse.KelasIndexResponse
-import com.example.coachreport.api.response.kelasResponse.KelasStoreResponse
+import com.example.coachreport.api.response.dataMateri
 import com.example.coachreport.api.response.kelasResponse.KelasUpdateResponse
 import com.example.coachreport.databinding.ActivityPerbaruiJadwalBinding
 import retrofit2.Call
@@ -30,7 +28,7 @@ import java.util.Locale
 
 class PerbaruiJadwalActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPerbaruiJadwalBinding
-    private var dataMateri: List<UserItem> = emptyList()
+    private var dataMateri: List<dataMateri> = emptyList()
     private lateinit var dropdown: Spinner
     private var selectedHari: String? = null
     private var materiId: Int? = null
@@ -149,7 +147,7 @@ class PerbaruiJadwalActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun dataSpinner(dataItem: List<UserItem>) {
+    private fun dataSpinner(dataItem: List<dataMateri>) {
         val materi: List<String> = dataItem.map { it.judul.toString() }
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, materi)
@@ -164,8 +162,8 @@ class PerbaruiJadwalActivity : AppCompatActivity() {
                     val data = response.body()
                     val dataItem = data?.user
                     Log.d("FETCH DATA", dataItem.toString())
-                    dataItem?.let { dataSpinner(it as List<UserItem>) }
-                    dataItem?.let { dataMateri = it as List<UserItem> }
+                    dataItem?.let { dataSpinner(it as List<dataMateri>) }
+                    dataItem?.let { dataMateri = it as List<dataMateri> }
                 }
             }
 
@@ -190,7 +188,6 @@ class PerbaruiJadwalActivity : AppCompatActivity() {
                     val intent = Intent(this@PerbaruiJadwalActivity, KelolaJadwalActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                     startActivity(intent)
-                    finish()
                 } else {
                     Toast.makeText(this@PerbaruiJadwalActivity, "Data tidak boleh kosong", Toast.LENGTH_SHORT).show()
                 }

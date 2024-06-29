@@ -8,10 +8,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coachreport.R
-import com.example.coachreport.api.response.kelasResponse.ClassItem
-import com.example.coachreport.api.response.kelasResponse.DataItem
+import com.example.coachreport.api.response.kelasResponse.DataItems
 
-class adapterKelasMendatang (private val context: Context, private var comingclasslist : List<ClassItem?>?) : RecyclerView.Adapter<adapterKelasMendatang.myViewHolder>() {
+class adapterKelasMendatang (private val context: Context, private var comingclasslist : List<DataItems?>?) : RecyclerView.Adapter<adapterKelasMendatang.myViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -25,13 +24,13 @@ class adapterKelasMendatang (private val context: Context, private var comingcla
 
         val id = currentItem?.id
         val kelas = currentItem?.nama
-        val nama_materi = currentItem?.materisId
+        val nama_materi = currentItem?.materis?.judul
         val hari = currentItem?.hari
         val mulai = currentItem?.mulai
         val selesai = currentItem?.selesai
         val tempat = currentItem?.tempat
 
-//        holder.nama_materi.text = nama_materi
+        holder.nama_materi.text = nama_materi
         holder.kelas.text = kelas
         holder.hari.text = hari
         holder.mulai.text = mulai
@@ -42,7 +41,7 @@ class adapterKelasMendatang (private val context: Context, private var comingcla
         return comingclasslist!!.size
     }
 
-    fun updateData(newData: List<ClassItem?>?) {
+    fun updateData(newData: List<DataItems?>?) {
         comingclasslist = newData
         notifyDataSetChanged()
     }

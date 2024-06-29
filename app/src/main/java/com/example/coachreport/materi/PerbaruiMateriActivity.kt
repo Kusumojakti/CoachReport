@@ -3,6 +3,7 @@ package com.example.coachreport.materi
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import android.window.OnBackInvokedDispatcher
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -37,6 +38,11 @@ class PerbaruiMateriActivity : AppCompatActivity() {
         }
 
     }
+    override fun getOnBackInvokedDispatcher(): OnBackInvokedDispatcher {
+        return super.getOnBackInvokedDispatcher()
+        finish()
+
+    }
 
     private fun updatemateri (judul : String, deskripsi : String) {
         val id = this.intent.getStringExtra("id")
@@ -51,14 +57,13 @@ class PerbaruiMateriActivity : AppCompatActivity() {
                         val intent = Intent(this@PerbaruiMateriActivity, KelolaMateriActivity::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                         startActivity(intent)
-                        finish()
                     } else (
                             Toast.makeText(this@PerbaruiMateriActivity, "Gagal mengupdate data", Toast.LENGTH_LONG).show()
                     )
                 }
 
                 override fun onFailure(call: Call<MateriResponse>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    Toast.makeText(this@PerbaruiMateriActivity,  t.message, Toast.LENGTH_LONG).show()
                 }
             })
         }

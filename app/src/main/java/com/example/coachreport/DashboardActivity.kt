@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.coachreport.absensi.KelolaAbsensiActivity
 import com.example.coachreport.adapter.adapterKelasMendatang
 import com.example.coachreport.api.APIConfig
-import com.example.coachreport.api.response.kelasResponse.ClassItem
 import com.example.coachreport.api.response.kelasResponse.DataItem
+import com.example.coachreport.api.response.kelasResponse.DataItems
 import com.example.coachreport.api.response.kelasResponse.KelasIndexResponse
 import com.example.coachreport.api.response.kelasResponse.KelasTodayResponse
 import com.example.coachreport.databinding.ActivityDashboardBinding
@@ -80,15 +80,7 @@ class DashboardActivity : AppCompatActivity() {
         getData()
     }
 
-//    private fun getOnComingClass(jadwallist: List<DataItem?>): List<DataItem?> {
-//        val today = LocalDate.now().dayOfWeek.name
-//        val now = LocalTime.now()
-//
-//        return jadwallist.filter {
-//            it?.hari.equals(today, ignoreCase = true) && LocalTime.parse(it?.mulai ?: "", DateTimeFormatter.ISO_TIME).isAfter(now)
-//        }
-//    }
-    private fun getKelasSedangBerlangsung(jadwallist: List<ClassItem?>): List<ClassItem?> {
+    private fun getKelasSedangBerlangsung(jadwallist: List<DataItems?>): List<DataItems?> {
         val today = LocalDate.now().dayOfWeek.name
         val now = LocalTime.now()
 
@@ -115,6 +107,9 @@ class DashboardActivity : AppCompatActivity() {
                         // Update data untuk kelas sedang berlangsung
                         val ongoingClasses = getKelasSedangBerlangsung(datajadwal)
                         displayOngoingClasses(ongoingClasses)
+                    } else {
+                        binding.datanotfound.visibility = View.VISIBLE
+                        binding.rvOncomingclass.visibility = View.GONE
                     }
                 } else {
                     Toast.makeText(this@DashboardActivity, "Failed to get data", Toast.LENGTH_LONG).show()
@@ -127,7 +122,7 @@ class DashboardActivity : AppCompatActivity() {
         })
     }
 
-    private fun displayOngoingClasses(ongoingClasses: List<ClassItem?>) {
+    private fun displayOngoingClasses(ongoingClasses: List<DataItems?>) {
         val container = findViewById<LinearLayout>(R.id.card_jadwal)
         container.removeAllViews()
 
@@ -139,7 +134,7 @@ class DashboardActivity : AppCompatActivity() {
             val txtmulai: TextView = view.findViewById(R.id.txt_waktumulai)
             val txtselesai: TextView = view.findViewById(R.id.txt_waktuselesai)
 
-            txtNamaMateri.text = (kelas?.materisId ?: "Unknown").toString()
+            txtNamaMateri.text = (kelas?.materis?.judul ?: "Unknown").toString()
             txtnamakelas.text = kelas?.nama
             txthari.text = kelas?.hari
             txtmulai.text = kelas?.mulai

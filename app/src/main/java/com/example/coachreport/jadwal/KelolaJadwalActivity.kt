@@ -50,7 +50,7 @@ class KelolaJadwalActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<KelasIndexResponse>, t: Throwable) {
-                Toast.makeText(this@KelolaJadwalActivity,  "Data Not Found", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@KelolaJadwalActivity,  t.message, Toast.LENGTH_LONG).show()
             }
         })
     }

@@ -12,8 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.coachreport.R
 import com.example.coachreport.adapter.adapterAbsensi
 import com.example.coachreport.api.APIConfig
+import com.example.coachreport.api.request.absenRequest.AbsensiPostRequest
 import com.example.coachreport.api.response.absensiResponse.AbsensiGetResponse
 import com.example.coachreport.api.response.absensiResponse.AbsensiItem
+import com.example.coachreport.api.response.absensiResponse.AbsensiPostResponse
 import com.example.coachreport.api.response.absensiResponse.SiswaItem
 import com.example.coachreport.api.response.kelasResponse.DataItem
 import com.example.coachreport.api.response.kelasResponse.KelasIndexResponse
@@ -75,6 +77,22 @@ class KelolaAbsensiActivity : AppCompatActivity() {
                 // Handle the case when nothing is selected
             }
         }
+
+        binding.btnSimpanAbsensi.setOnClickListener {
+            val updatedAbsensiList = adapter.getUpdatedAbsensiList()
+            val absensiPostRequest = AbsensiPostRequest(
+                siswa = updatedAbsensiList,
+                ulasan = binding.edtUlasan.text.toString(),
+                pertemuanKe = selectedPertemuan,
+                jadwalKelasId = kelasId
+            )
+            saveAbsensi(absensiPostRequest)
+        }
+
+        binding.btnhapus.setOnClickListener {
+            deletedabsensi(selectedPertemuan, kelasId)
+        }
+
     }
 
     private fun dataSpinner(dataItem: List<DataItem>) {
@@ -116,7 +134,7 @@ class KelolaAbsensiActivity : AppCompatActivity() {
     private fun getAbsensi(pertemuanKe: Int?, jadwalKelasId: Int?) {
         APIConfig.getService(this).getabsensi(pertemuanKe, jadwalKelasId)
             .enqueue(object : Callback<AbsensiGetResponse> {
-                override fun onResponse(call: Call<AbsensiGetResponse>, response: Response<AbsensiGetResponse>) {
+                override fun onResponse(call: Call<AbsensiGetResponse>, response: Response<AbsensiGetResponse>) =
                     if (response.isSuccessful) {
                         val data = response.body()
                         data?.let {
@@ -125,21 +143,57 @@ class KelolaAbsensiActivity : AppCompatActivity() {
                                 setupRecyclerView(data.absensi ?: listOf(), data.siswa ?: listOf())
                             }
                         }
+                        val ulasan = data?.data?.ulasan?.deskripsi
+                        binding.edtUlasan.setText(ulasan.toString())
                     } else {
                         // Log the response details for debugging
                         Log.e("FETCH ABSENSI", "Error: ${response.code()} - ${response.message()}")
                         Toast.makeText(this@KelolaAbsensiActivity, "Gagal mendapatkan data", Toast.LENGTH_SHORT).show()
                     }
-                }
 
                 override fun onFailure(call: Call<AbsensiGetResponse>, t: Throwable) {
                     // Log the failure reason for debugging
                     Log.e("FETCH ABSENSI", "Failure: ${t.message}")
-                    Toast.makeText(this@KelolaAbsensiActivity, "Gagal mendapatkan data", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@KelolaAbsensiActivity,  t.message, Toast.LENGTH_LONG).show()
                 }
             })
     }
 
-    private fun saveabsen()
+    private fun saveAbsensi(dataAbsensi: AbsensiPostRequest) {
+        APIConfig.getService(this).saveabsensi(dataAbsensi).enqueue(object : Callback<AbsensiPostResponse> {
+            override fun onResponse(
+                call: Call<AbsensiPostResponse>,
+                response: Response<AbsensiPostResponse>
+            ) {
+                if (response.code() == 200) {
+                    Toast.makeText(this@KelolaAbsensiActivity, response.message(), Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this@KelolaAbsensiActivity, "Gagal menyimpan data", Toast.LENGTH_SHORT).show()
+                }
+            }
 
+            override fun onFailure(call: Call<AbsensiPostResponse>, t: Throwable) {
+                Toast.makeText(this@KelolaAbsensiActivity, t.message, Toast.LENGTH_LONG).show()
+            }
+        })
+    }
+
+    private fun deletedabsensi(pertemuanKe: Int?, jadwalKelasId: Int?) {
+        APIConfig.getService(this).deleteabsensi(pertemuanKe, jadwalKelasId).enqueue(object : Callback<AbsensiGetResponse>{
+            override fun onResponse(
+                call: Call<AbsensiGetResponse>,
+                response: Response<AbsensiGetResponse>
+            ) {
+                if (response.code() == 200) {
+                    Toast.makeText(this@KelolaAbsensiActivity, response.message(), Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(this@KelolaAbsensiActivity, "Gagal menghapus absen", Toast.LENGTH_LONG).show()
+                }
+            }
+
+            override fun onFailure(call: Call<AbsensiGetResponse>, t: Throwable) {
+                Toast.makeText(this@KelolaAbsensiActivity,  t.message, Toast.LENGTH_LONG).show()
+            }
+        })
+    }
 }

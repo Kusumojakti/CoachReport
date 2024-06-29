@@ -84,8 +84,9 @@ class DetailJadwalKelas : AppCompatActivity() {
                     if (response.code() == 200) {
                         Toast.makeText(applicationContext, "Jadwal Berhasil Dihapus", Toast.LENGTH_LONG).show()
                         val intent = Intent(this@DetailJadwalKelas, KelolaJadwalActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                         startActivity(intent)
-                        finish()
+
                     }
                     Toast.makeText(applicationContext, "Gagal menghapus jadwal", Toast.LENGTH_SHORT).show()
                 }

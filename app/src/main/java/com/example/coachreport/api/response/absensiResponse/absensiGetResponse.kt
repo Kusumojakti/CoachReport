@@ -95,7 +95,7 @@ data class AbsensiItem(
 	val siswasId: String? = null,
 
 	@field:SerializedName("status")
-	val status: String? = null
+	var status: String? = null
 )
 
 data class AbsensiGetResponse(

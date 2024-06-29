@@ -2,8 +2,10 @@ package com.example.coachreport.materi
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.LinearLayout
 import android.widget.Toast
+import android.window.OnBackInvokedDispatcher
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -48,6 +50,12 @@ class KelolaMateriActivity : AppCompatActivity() {
         getData()
     }
 
+    override fun getOnBackInvokedDispatcher(): OnBackInvokedDispatcher {
+        return super.getOnBackInvokedDispatcher()
+        finish()
+
+    }
+
     private fun getData() {
         APIConfig.getService(this).getMateri().enqueue(object : Callback<MateriResponse> {
             override fun onResponse(
@@ -60,12 +68,13 @@ class KelolaMateriActivity : AppCompatActivity() {
 
                     if (datamateri != null) {
                         adapterMateri.updateData(datamateri)
+                        Log.d("Data Recycler", datamateri.toString())
                     }
                 }
             }
 
             override fun onFailure(call: Call<MateriResponse>, t: Throwable) {
-                Toast.makeText(this@KelolaMateriActivity,  "Data Not Found", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@KelolaMateriActivity,  t.message, Toast.LENGTH_LONG).show()
             }
         })
     }

@@ -1,5 +1,6 @@
 package com.example.coachreport.api.request.absenRequest
 
+import com.example.coachreport.api.response.absensiResponse.AbsensiItem
 import com.google.gson.annotations.SerializedName
 
 data class AbsensiPostRequest(
@@ -8,7 +9,7 @@ data class AbsensiPostRequest(
 	val ulasan: String? = null,
 
 	@field:SerializedName("siswa")
-	val siswa: List<SiswaItem?>? = null,
+	val siswa: List<AbsensiItem>? = null,
 
 	@field:SerializedName("jadwal_kelas_id")
 	val jadwalKelasId: Int? = null,

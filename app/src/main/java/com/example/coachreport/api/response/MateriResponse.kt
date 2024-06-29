@@ -10,11 +10,11 @@ data class MateriResponse(
 	@field:SerializedName("message")
 	val message: String? = null,
 
-	@field:SerializedName("user")
-	val user: List<UserItem?>? = null
+	@field:SerializedName("data")
+	val user: List<dataMateri?>? = null
 )
 
-data class UserItem(
+data class dataMateri(
 
 	@field:SerializedName("updated_at")
 	val updatedAt: String? = null,

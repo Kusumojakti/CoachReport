@@ -96,8 +96,8 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:contentDescription="add"
-                android:padding="10dp"
-
+                app:backgroundTint="@color/light1"
+                android:src="@drawable/ic_add"
                 app:layout_constraintStart_toEndOf="@id/guideline2"
                 app:layout_constraintTop_toBottomOf="@id/guideline4" />
 
