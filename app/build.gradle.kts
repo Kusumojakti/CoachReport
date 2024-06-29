@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.coachreport"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -54,4 +54,5 @@ dependencies {
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.squareup.okhttp3:logging-interceptor:4.2.1")
+    implementation ("com.google.android.material:material:1.2.1")
 }

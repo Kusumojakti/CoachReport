@@ -44,12 +44,20 @@
         </LinearLayout>
 
     </LinearLayout>
-    
-    <Spinner
+
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_box_absen"
-        android:layout_marginTop="27dp"
-        android:layout_marginStart="120dp"/>
+        android:layout_height="wrap_content">
+
+        <Spinner
+            android:id="@+id/spin_absen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_box_absen"
+            android:layout_marginTop="27dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"/>
+
+    </RelativeLayout>
 
 </LinearLayout>

@@ -35,6 +35,15 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        val token = SessionManager.getToken(this)
+        if (!token.isNullOrBlank()){
+            navigateToDashboard()
+        }
+    }
+
     private fun authlogin(noHp: String, password: String) {
         if (noHp.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Phone number and password must be filled", Toast.LENGTH_SHORT).show()
@@ -65,5 +74,12 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this@LoginActivity, "Login error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private fun navigateToDashboard(){
+        val intent = Intent(this, DashboardActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+        startActivity(intent)
     }
 }

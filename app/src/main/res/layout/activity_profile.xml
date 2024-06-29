@@ -91,7 +91,7 @@
             android:layout_marginTop="10dp"/>
 
         <TextView
-            android:id="@+id/no_identitas"
+            android:id="@+id/no_hp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="081214239869"
@@ -120,7 +120,7 @@
             android:layout_marginTop="10dp"/>
 
         <TextView
-            android:id="@+id/no_telpon"
+            android:id="@+id/emailuser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="datadummy@gmail.com"
@@ -132,7 +132,7 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnPerbaruiSiswa"
+        android:id="@+id/btnPerbaruiProfile"
         android:layout_width="match_parent"
         android:layout_height="34dp"
         android:background="@drawable/btn_form"
@@ -147,7 +147,7 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnHapusSiswa"
+        android:id="@+id/btn_logout"
         android:layout_width="match_parent"
         android:layout_height="34dp"
         android:background="@drawable/btn_logout"

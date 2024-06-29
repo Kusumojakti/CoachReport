@@ -109,16 +109,41 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"/>
 
-        <TextView
-            android:id="@+id/waktu_kelas"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="24:00 - 06:00"
-            android:fontFamily="@font/popmed"
-            android:textSize="10sp"
-            android:textColor="#94A3B8"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/waktu_mulai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="24:00"
+                android:fontFamily="@font/popmed"
+                android:textSize="10sp"
+                android:textColor="#94A3B8"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:fontFamily="@font/popmed"
+                android:textSize="10sp"
+                android:textColor="#94A3B8"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:id="@+id/waktu_selesai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="06:00"
+                android:fontFamily="@font/popmed"
+                android:textSize="10sp"
+                android:textColor="#94A3B8"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
+
 
         <View
             android:layout_width="match_parent"
@@ -210,7 +235,7 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnPerbaruiSiswa"
+        android:id="@+id/btnPerbaruiJadwal"
         android:layout_width="match_parent"
         android:layout_height="34dp"
         android:background="@drawable/btn_form"
@@ -225,7 +250,7 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnHapusSiswa"
+        android:id="@+id/btnHapusMateri"
         android:layout_width="match_parent"
         android:layout_height="34dp"
         android:background="@drawable/btn_form"

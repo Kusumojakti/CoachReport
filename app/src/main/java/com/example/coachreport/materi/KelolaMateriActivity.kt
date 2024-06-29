@@ -1,5 +1,6 @@
 package com.example.coachreport.materi
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.Toast
@@ -20,15 +21,30 @@ import retrofit2.Response
 class KelolaMateriActivity : AppCompatActivity() {
     private lateinit var binding : ActivityKelolaMateriBinding
     private lateinit var adapterMateri: adapterMateri
+
+    private var totalmateri : Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityKelolaMateriBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.backArrow.setOnClickListener {
+            onBackPressed()
+        }
+
+        binding.floatingButton.setOnClickListener {
+            val intent = Intent(this, TambahMateriActivity::class.java)
+            startActivity(intent)
+        }
+
         adapterMateri = adapterMateri(this, ArrayList())
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapterMateri
 
+    }
+
+    override fun onResume() {
+        super.onResume()
         getData()
     }
 
@@ -45,7 +61,6 @@ class KelolaMateriActivity : AppCompatActivity() {
                     if (datamateri != null) {
                         adapterMateri.updateData(datamateri)
                     }
-
                 }
             }
 

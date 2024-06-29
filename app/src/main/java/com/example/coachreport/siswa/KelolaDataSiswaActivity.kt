@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.coachreport.DashboardActivity
 import com.example.coachreport.R
 import com.example.coachreport.adapter.adapterSiswa
 import com.example.coachreport.api.APIConfig
@@ -20,7 +21,7 @@ class KelolaDataSiswaActivity : AppCompatActivity() {
     private lateinit var adapterSiswa: adapterSiswa
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        WindowCompat.setDecorFitsSystemWindows(window, false)
+//        WindowCompat.setDecorFitsSystemWindows(window, false)
         binding = ActivityKelolaDataSiswaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -49,7 +50,14 @@ class KelolaDataSiswaActivity : AppCompatActivity() {
                 if (response.code() == 200) {
                     val dataSiswa = response?.body()?.data
 
-                    if (!dataSiswa.isNullOrEmpty()) adapterSiswa.updateData(dataSiswa)
+                    if (!dataSiswa.isNullOrEmpty()) {
+                        adapterSiswa.updateData(dataSiswa)
+                        val jumlahsiswa = dataSiswa?.size
+                        val intent = Intent(this@KelolaDataSiswaActivity, DashboardActivity::class.java)
+                        intent.putExtra("jumlah_siswa", jumlahsiswa)
+                        startActivity(intent)
+                    }
+
                 }
             }
 
@@ -58,4 +66,5 @@ class KelolaDataSiswaActivity : AppCompatActivity() {
             }
         })
     }
+
 }

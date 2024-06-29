@@ -45,15 +45,22 @@
 
     </LinearLayout>
 
-    <TextView
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="153dp"
-        android:layout_marginEnd="10dp"
-        android:fontFamily="@font/popregular"
-        android:text="Lihat Detail >"
-        android:textColor="@color/gray2"
-        android:textSize="12sp" />
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lihat Detail >"
+            android:fontFamily="@font/popregular"
+            android:textSize="12sp"
+            android:textColor="@color/gray2"
+            android:layout_gravity="center"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
 
 </LinearLayout>

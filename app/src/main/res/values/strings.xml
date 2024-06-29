@@ -2,5 +2,34 @@
     <string name="app_name">CoachReport</string>
 
     <!--    dropdown-->
-    <string name="hint_pilih_kelas">Pilih Kelas</string>
+    <string-array name="pilih_hari">
+        <item>-- pilih hari --</item>
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </string-array>
+
+<!--    pertemuan-->
+    <integer-array name="pilih_pertemuan">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </integer-array>
+
+    <string-array name="status">
+        <item>hadir</item>
+        <item>alpha</item>
+        <item>ijin</item>
+    </string-array>
 </resources>

@@ -93,7 +93,7 @@
             android:layout_marginTop="10dp"/>
     </LinearLayout>
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnPerbaruiSiswa"
+        android:id="@+id/btnPerbarui"
         android:layout_width="match_parent"
         android:layout_height="34dp"
         android:background="@drawable/btn_form"
@@ -108,7 +108,7 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnHapusSiswa"
+        android:id="@+id/btnHapus"
         android:layout_width="match_parent"
         android:layout_height="34dp"
         android:background="@drawable/btn_form"

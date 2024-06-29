@@ -21,12 +21,14 @@ class adapterMateri (private val context: Context, private var materilist : List
     override fun onBindViewHolder(holder: adapterMateri.myViewHolder, position: Int) {
         val currentItem = materilist?.get(position)
 
+        val id = currentItem?.id
         val judul = currentItem?.judul
         val deskripsi = currentItem?.deskripsi
 
         holder.tittle_materi.text = judul
         holder.card_materi.setOnClickListener {
             val intent = Intent(context, DetailMateriActivity::class.java)
+            intent.putExtra("id", id.toString())
             intent.putExtra("judul", judul)
             intent.putExtra("deskripsi", deskripsi)
             context.startActivity(intent)

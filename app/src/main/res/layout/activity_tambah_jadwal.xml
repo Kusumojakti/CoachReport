@@ -97,7 +97,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"/>
 
-        <EditText
+        <Spinner
             android:id="@+id/edt_hari"
             android:layout_width="match_parent"
             android:layout_height="34dp"
@@ -106,7 +106,6 @@
             android:layout_marginEnd="19dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/bg_form"
-            android:hint="Pilih hari dan tanggal"
             android:fontFamily="@font/popregular"
             android:textSize="12sp"
             android:paddingStart="11dp"/>
@@ -217,7 +216,7 @@
             android:layout_marginEnd="19dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/bg_form"
-            android:hint="Masukkan nomor telpon"
+            android:hint="Masukkan tempat"
             android:fontFamily="@font/popregular"
             android:textSize="12sp"
             android:paddingStart="11dp"/>
@@ -245,7 +244,7 @@
             android:layout_marginTop="15dp"/>
 
         <EditText
-            android:id="@+id/edt_nottelpon"
+            android:id="@+id/edt_namakelasjadwal"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:layout_marginTop="11dp"

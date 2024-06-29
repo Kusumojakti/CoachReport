@@ -6,4 +6,6 @@
     </style>
 
     <style name="Theme.CoachReport" parent="Base.Theme.CoachReport" />
+
+
 </resources>
