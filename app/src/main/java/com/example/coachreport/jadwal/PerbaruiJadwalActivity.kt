@@ -61,7 +61,7 @@ class PerbaruiJadwalActivity : AppCompatActivity() {
         binding.edtTempat.setText(tempat)
 
         binding.backArrow.setOnClickListener {
-            onBackInvokedDispatcher
+            onBackPressed()
         }
 
         binding.edtMateri.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {

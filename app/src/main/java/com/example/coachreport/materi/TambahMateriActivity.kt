@@ -29,6 +29,10 @@ class TambahMateriActivity : AppCompatActivity() {
             addMateri(judul, deskripsi)
         }
 
+        binding.backArrow.setOnClickListener {
+            onBackPressed()
+        }
+
     }
     override fun getOnBackInvokedDispatcher(): OnBackInvokedDispatcher {
         return super.getOnBackInvokedDispatcher()

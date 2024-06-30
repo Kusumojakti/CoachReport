@@ -22,5 +22,9 @@ class PerbaruiProfileActivity : AppCompatActivity() {
         binding.edtNama.setText(username.toString())
         binding.edtNoHP.setText(noHp.toString())
         binding.edtEmail.setText(email.toString())
+
+        binding.backArrow.setOnClickListener {
+            onBackPressed()
+        }
     }
 }

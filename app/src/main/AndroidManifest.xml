@@ -38,7 +38,7 @@
         <activity
             android:name=".materi.KelolaMateriActivity"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".jadwal.PerbaruiJadwalActivity"
             android:exported="false"

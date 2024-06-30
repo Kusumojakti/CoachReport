@@ -67,6 +67,10 @@ class DetailDataSiswa : AppCompatActivity() {
             intent.putExtra("noTelp", noTelp)
             startActivity(intent)
         }
+
+        binding.backArrow.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun deleteSiswa(noIdentitas: String) {

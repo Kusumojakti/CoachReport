@@ -108,6 +108,10 @@ class TambahJadwalActivity : AppCompatActivity() {
 
             addJadwal(datajadwal)
         }
+
+        binding.backArrow.setOnClickListener {
+            onBackPressed()
+        }
     }
     override fun getOnBackInvokedDispatcher(): OnBackInvokedDispatcher {
         return super.getOnBackInvokedDispatcher()

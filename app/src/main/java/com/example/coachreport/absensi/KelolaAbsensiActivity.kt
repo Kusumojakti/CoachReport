@@ -30,6 +30,7 @@ class KelolaAbsensiActivity : AppCompatActivity() {
     private lateinit var dropdown: Spinner
     private var dataKelas: List<DataItem> = emptyList()
     private var selectedPertemuan: Int? = null
+    var kelasId: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +40,7 @@ class KelolaAbsensiActivity : AppCompatActivity() {
 
         getKelas()
 
-        var kelasId: Int? = null
+//        var kelasId: Int? = null
 
         binding.pilihankelas.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
@@ -93,6 +94,15 @@ class KelolaAbsensiActivity : AppCompatActivity() {
             deletedabsensi(selectedPertemuan, kelasId)
         }
 
+        binding.backArrow.setOnClickListener {
+            onBackPressed()
+        }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getAbsensi(selectedPertemuan, kelasId)
     }
 
     private fun dataSpinner(dataItem: List<DataItem>) {

@@ -30,6 +30,13 @@ class KelolaJadwalActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.backArrow.setOnClickListener {
+            onBackPressed()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
         getData()
     }
 

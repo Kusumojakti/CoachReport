@@ -35,6 +35,7 @@ class KelolaDataSiswaActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
         binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (newText.isNullOrBlank()){
@@ -53,6 +54,10 @@ class KelolaDataSiswaActivity : AppCompatActivity() {
                 return true
             }
         })
+
+        binding.backArrow.setOnClickListener {
+            onBackPressed()
+        }
 
     }
 

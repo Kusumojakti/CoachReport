@@ -37,6 +37,10 @@ class PerbaruiMateriActivity : AppCompatActivity() {
 
         }
 
+        binding.backArrow.setOnClickListener {
+            onBackPressed()
+        }
+
     }
     override fun getOnBackInvokedDispatcher(): OnBackInvokedDispatcher {
         return super.getOnBackInvokedDispatcher()

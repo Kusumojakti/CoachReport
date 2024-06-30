@@ -64,6 +64,10 @@ class TambahDataSiswaActivity : AppCompatActivity() {
             storeSiswa(dataSiswa)
         }
 
+        binding.backArrow.setOnClickListener {
+            onBackPressed()
+        }
+
     }
 
     override fun getOnBackInvokedDispatcher(): OnBackInvokedDispatcher {

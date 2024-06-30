@@ -71,6 +71,9 @@ class DetailJadwalKelas : AppCompatActivity() {
             dialog.show()
         }
 
+        binding.backArrow.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun deletejadwal() {

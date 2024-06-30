@@ -74,6 +74,10 @@ class PerbaruiDataSiswaActivity : AppCompatActivity() {
             )
             updateSiswa(dataSiswa, noIdentitas)
         }
+
+        binding.backArrow.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     override fun getOnBackInvokedDispatcher(): OnBackInvokedDispatcher {
